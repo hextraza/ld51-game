@@ -1,29 +1,102 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.5
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1.5, 1, 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Block"
+length = 0.1
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Stick")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0.691041, 0.847082, 0.444871, -0.0703771, 0.172497, -0.600699, 0.777466, 1, 1, 1, 0.1, 1, 0.73876, 1, 0, -0.204749, 0.250358, 0.0532937, 0.944753, 1, 1, 1 )
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Stick")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0.691041, 0.847082, 0.444871, -0.0703771, 0.172497, -0.600699, 0.777466, 1, 1, 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Swing"
+length = 0.6
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Stick")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0.691041, 0.847082, 0.444871, -0.0703771, 0.172497, -0.600699, 0.777466, 1, 1, 1, 0.1, 1, 1.01598, 0.862499, -0.862993, -0.399373, 0.433876, -0.563524, 0.578528, 1, 1, 1, 0.2, 1, 1.91262, 0.862499, 0.0909864, 0.0140256, 0.00479158, -0.690551, 0.723132, 1, 1, 1, 0.3, 1, 1.01487, 0.862499, 1.58661, 0.302472, -0.299061, -0.620941, 0.658411, 1, 1, 1, 0.4, 1, -0.907345, 0.862499, 1.58661, -0.602607, 0.621176, 0.337524, -0.370246, 1, 1, 1, 0.5, 1, -1.27409, 0.862499, 1.15128, -0.658772, 0.683623, 0.207551, -0.235799, 1, 1, 1, 0.6, 1, 0.691041, 0.847082, 0.444871, -0.0703771, 0.172497, -0.600699, 0.777466, 1, 1, 1 )
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.4, 0.4, 0.4 )
+
+[sub_resource type="CylinderMesh" id=6]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 1.75
+radial_segments = 16
+rings = 0
 
 [node name="Player" type="KinematicBody"]
 axis_lock_motion_z = true
 move_lock_z = true
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
-mesh = SubResource( 2 )
+[node name="SwingArea" type="Area" parent="."]
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="SwingArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0 )
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Block = SubResource( 7 )
+anims/RESET = SubResource( 9 )
+anims/Swing = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 1 )
 
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.49012e-08, 0 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+
+[node name="Stick" type="Spatial" parent="."]
+transform = Transform( 0.218812, 0.909766, 0.352772, -0.958325, 0.268416, -0.0978057, -0.18367, -0.316669, 0.930584, 0.691041, 0.847082, 0.444871 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Stick"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-07, -2.98023e-07, 0 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="SwingArea" to="." method="_on_SwingArea_body_entered"]
+[connection signal="body_exited" from="SwingArea" to="." method="_on_SwingArea_body_exited"]
