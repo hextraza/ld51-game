@@ -29,14 +29,16 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	var input_move := Input.get_vector('move_left', 'move_right', 'ui_down', 'ui_up')
 	var input_jump := Input.is_action_pressed('move_jump')
-	var snap := Vector3.ZERO if input_jump else Vector3.DOWN
+	var input_jump_now := Input.is_action_just_pressed('move_jump')
 
 	if is_zero_approx(input_move.x):
 		velocity.x = lerp(velocity.x, 0.0, stop_scale * delta)
 	else:
 		velocity.x = lerp(velocity.x, input_move.x * move_speed, move_scale * delta)
 
-	if input_jump and is_on_floor():
+	var snap := Vector3.ZERO if input_jump else Vector3.DOWN
+
+	if input_jump_now and is_on_floor():
 		velocity.y += sqrt(2 * jump_height * gravity * jump_scale)
 	elif input_jump and velocity.y > 0.0:
 		velocity.y -= gravity * jump_scale * delta
