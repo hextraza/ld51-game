@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/baddie.tscn" type="PackedScene" id=3]
+
+[node name="Level" type="Spatial"]
+
+[node name="Terrain" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+use_collision = true
+width = 48.0
+
+[node name="CSGBox2" type="CSGBox" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 )
+
+[node name="CSGBox4" type="CSGBox" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
+height = 4.0
+
+[node name="CSGBox5" type="CSGBox" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 1 )
+polygon = PoolVector2Array( 2, 0, 4, 0, 4, 2 )
+depth = 2.0
+
+[node name="Baddie" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )

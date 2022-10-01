@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://player/player.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 1.5, 1, 1 )
@@ -91,7 +91,7 @@ mesh = SubResource( 4 )
 skeleton = NodePath("../..")
 
 [node name="Stick" type="Spatial" parent="."]
-transform = Transform( 0.218812, 0.909766, 0.352772, -0.958325, 0.268416, -0.0978057, -0.18367, -0.316669, 0.930584, 0.691041, 0.847082, 0.444871 )
+transform = Transform( 0.218812, 0.909766, 0.352772, -0.958325, 0.268416, -0.0978059, -0.18367, -0.316669, 0.930584, 0.691041, 0.847082, 0.444871 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Stick"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78814e-07, -2.98023e-07, 0 )

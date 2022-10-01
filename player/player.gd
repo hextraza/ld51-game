@@ -17,6 +17,7 @@ var velocity := Vector3.ZERO
 var facing := Quat.IDENTITY
 var swing_area_bodies := []
 
+
 #
 func _on_SwingArea_body_entered(body: Node) -> void:
 	if body != self:
