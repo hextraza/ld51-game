@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
-	var input_move := Input.get_vector('move_left', 'move_right', 'ui_down', 'ui_up')
+	var input_move := Input.get_vector('move_left', 'move_right', 'move_down', 'move_up')
 	var input_jump := Input.is_action_pressed('move_jump')
 	var input_jump_now := Input.is_action_just_pressed('move_jump')
 
