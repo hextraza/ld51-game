@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://player/camera.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
+script = ExtResource( 3 )
 
 [node name="World" type="Spatial" parent="."]
 
@@ -12,6 +14,11 @@
 default_target = NodePath("../Player")
 
 [node name="Player" parent="World" instance=ExtResource( 2 )]
+input_enabled = true
+recoil_speed = 50.0
+
+[node name="Player2" parent="World" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 0, 0 )
 
 [node name="Level" parent="World" instance=ExtResource( 1 )]
 
