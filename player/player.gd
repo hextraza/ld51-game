@@ -51,12 +51,12 @@ func on_attack() -> void:
 		if them.is_parrying:
 			them.play_audio('Parry')
 			self.play_audio('SwordBlocked')
-			self.stick.play('Recoil', -1, 0.5)
+			self.game_logic.play('Recoil', -1, 0.5)
 			return
 	for them in hits:
 		print('%s recv_damage' % [them.name])
 		them.play_audio('Damaged')
-		them.stick.play('Recoil')
+		them.game_logic.play('Recoil')
 
 
 func set_controls_from_input() -> void:
