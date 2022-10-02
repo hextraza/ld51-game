@@ -1,7 +1,23 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.glb" type="PackedScene" id=2]
+[ext_resource path="res://player/player sounds/Parry.wav" type="AudioStream" id=3]
+[ext_resource path="res://player/player sounds/Player Damaged 1.wav" type="AudioStream" id=4]
+[ext_resource path="res://player/player sounds/Sword Swing 1.wav" type="AudioStream" id=5]
+[ext_resource path="res://player/player sounds/Sword Blocked.wav" type="AudioStream" id=6]
+[ext_resource path="res://player/player sounds/Dash.wav" type="AudioStream" id=7]
+[ext_resource path="res://player/player sounds/Player Damaged 2.wav" type="AudioStream" id=8]
+[ext_resource path="res://player/player sounds/Player Damaged 3.wav" type="AudioStream" id=9]
+[ext_resource path="res://player/player sounds/Player Damaged 4.wav" type="AudioStream" id=10]
+[ext_resource path="res://player/player sounds/Sword Swing 2.wav" type="AudioStream" id=11]
+[ext_resource path="res://player/player sounds/Sword Swing 3.wav" type="AudioStream" id=12]
+[ext_resource path="res://player/player sounds/Sword Swing 4.wav" type="AudioStream" id=13]
+[ext_resource path="res://player/player sounds/Sword Stab (with Horn Flourish).wav" type="AudioStream" id=14]
+[ext_resource path="res://player/player sounds/Sword Stab.wav" type="AudioStream" id=15]
+[ext_resource path="res://player/player sounds/Player Footsteps Wood.wav" type="AudioStream" id=16]
+[ext_resource path="res://player/player sounds/Player Death 2.wav" type="AudioStream" id=17]
+[ext_resource path="res://player/player sounds/Player Death 1.wav" type="AudioStream" id=18]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.25
@@ -12,76 +28,111 @@ extents = Vector3( 0.1, 0.1, 0.1 )
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 0.372496, 1, 0.364538 )
 
+[sub_resource type="AudioStreamRandomPitch" id=30]
+audio_stream = ExtResource( 5 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Attack"
+length = 0.9
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Stick/MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1, 0.1, 1, 0, 1, -0.5, 0, 0, 0.707107, 0.707107, 1, 1, 1, 0.5, 1, 0, 1, -0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.6, 1, 0, 1, 0.75, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.7, 1, 0, 1, 0.3, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.9, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1 )
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_attack"
+} ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioSwordSwing1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource( 30 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+
 [sub_resource type="Animation" id=12]
 resource_name = "Parry"
-length = 0.5
+length = 0.9
 tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
+tracks/0/path = NodePath("Stick/MeshInstance")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, 0.567495, 0.6, 0.83866, -0.282311, -0.282137, -0.0872658, 0.912734, 1, 1, 1, 0.2, 1, 0.567495, 0.6, 0.634312, -0.410332, -0.0991654, -0.017515, 0.906359, 1, 1, 1, 0.3, 1, 0.765108, 0.6, 0.463244, -0.404967, 0.0919825, 0.068421, 0.907116, 1, 1, 1, 0.4, 1, 0.427695, 0.6, 0.609259, -0.373125, -0.435078, -0.171631, 0.801266, 1, 1, 1, 0.5, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=13]
-resource_name = "ParryRecoil"
-length = 0.7
-tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0.760416, 0.6, 0.556264, -0.569291, -0.250858, -0.0202859, 0.782666, 1, 1, 1, 0.1, 1, 0.686983, 0.6, 0.0562055, -0.617859, 0.133278, 0.1073, 0.767446, 1, 1, 1, 0.3, 1, 0.656267, 0.6, 0.00198147, -0.671985, 0.0754763, 0.163979, 0.718227, 1, 1, 1, 0.5, 1, 0.508901, 0.6, 0.752685, -0.551666, -0.308775, 0.11905, 0.765604, 1, 1, 1, 0.6, 1, 0.484268, 0.6, 0.676343, -0.294719, -0.522156, -0.0577855, 0.79822, 1, 1, 1, 0.7, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1 )
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1, 0.1, 1, 0, 1, 0.5, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 1, 0.3, 0, 0, 0, 1, 1, 1, 1, 0.9, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1 )
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:is_parrying")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
 
 [sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
+tracks/0/path = NodePath("Stick/MeshInstance")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1 )
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "Stab"
-length = 0.5
+[sub_resource type="Animation" id=26]
+resource_name = "Recoil"
 tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
+tracks/0/path = NodePath("Stick/MeshInstance")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1, 0.3, 1, -1, 0.6, 0.6, 0, 0, -0.707107, 0.707107, 1, 1, 1, 0.4, 1, 1, 0.6, 0, 0, 0, -0.707107, 0.707107, 1, 1, 1, 0.5, 1, 0.691392, 0.6, 0.111477, -0.13259, 0.13259, -0.694565, 0.694565, 1, 1, 1 )
-
-[sub_resource type="Animation" id=14]
-resource_name = "StabPull"
-length = 0.2
-tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0.691392, 0.6, 0.111477, -0.13259, 0.13259, -0.694565, 0.694565, 1, 1, 1, 0.2, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=15]
-resource_name = "StabRecoil"
-length = 0.8
-tracks/0/type = "transform"
-tracks/0/path = NodePath("Stick")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0.691392, 0.6, 0.111477, -0.13259, 0.13259, -0.694565, 0.694565, 1, 1, 1, 0.1, 1, 0, 0.6, 0.6, 0.5, 0, 0, 0.866025, 1, 1, 1, 0.2, 1, -0.389759, 0.6, 0.746747, 0.403762, 0.0322229, 0.679259, 0.612001, 1, 1, 1, 0.4, 1, -0.112983, 0.6, 0.704976, 0.366572, -0.000802892, 0.700029, 0.612848, 1, 1, 1, 0.6, 1, -0.0564913, 0.6, 0.652488, 0.250686, 0.395205, 0.229012, 0.853535, 1, 1, 1, 0.8, 1, 0, 0.6, 0.6, 0, 0, 0, 1, 1, 1, 1 )
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1, 0.1, 1, 0, 1, -0.5, 0, 0, 0.866025, 0.5, 1, 1, 1, 0.8, 1, 0, 1, -0.25, 0, 0, 0.866025, 0.5, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0.707107, 0.707107, 1, 1, 1 )
 
 [sub_resource type="CylinderMesh" id=6]
 top_radius = 0.04
 bottom_radius = 0.04
+height = 1.0
 radial_segments = 16
 rings = 0
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "parry"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "idle-cycle"
@@ -100,9 +151,18 @@ blend_point_1/pos = 1.0
 blend_point_2/node = SubResource( 25 )
 blend_point_2/pos = -1.0
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
 [sub_resource type="AnimationNodeStateMachine" id=20]
+states/parry/node = SubResource( 27 )
+states/parry/position = Vector2( 238, 28.68 )
 states/walk/node = SubResource( 24 )
-states/walk/position = Vector2( 70, 29 )
+states/walk/position = Vector2( 69.2, 28.744 )
+transitions = [ "parry", "walk", SubResource( 28 ), "walk", "parry", SubResource( 29 ) ]
 start_node = "walk"
 graph_offset = Vector2( -25, -50 )
 
@@ -124,34 +184,39 @@ shape = SubResource( 3 )
 [node name="Reach" type="Area" parent="."]
 collision_mask = 0
 monitorable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="Reach"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.63036 )
-shape = SubResource( 10 )
-
-[node name="StickAnim" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
-playback_default_blend_time = 0.1
-anims/Parry = SubResource( 12 )
-anims/ParryRecoil = SubResource( 13 )
-anims/RESET = SubResource( 9 )
-anims/Stab = SubResource( 11 )
-anims/StabPull = SubResource( 14 )
-anims/StabRecoil = SubResource( 15 )
-
-[node name="Stick" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.6 )
-visible = false
-
-[node name="MeshInstance" type="MeshInstance" parent="Stick"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../..")
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CollisionShape" type="CollisionShape" parent="Reach"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.63036 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stick" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stick"]
+root_node = NodePath("../..")
+playback_process_mode = 0
+playback_default_blend_time = 0.1
+anims/Attack = SubResource( 11 )
+anims/Parry = SubResource( 12 )
+anims/RESET = SubResource( 9 )
+anims/Recoil = SubResource( 26 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Stick"]
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+
 [node name="Model" parent="." instance=ExtResource( 2 )]
+
+[node name="Spatial" type="Spatial" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 20 )
@@ -160,9 +225,63 @@ active = true
 process_mode = 0
 root_motion_track = NodePath("metarig/Skeleton:Root Motion")
 parameters/playback = SubResource( 21 )
-parameters/walk/blend_position = 0
+parameters/walk/blend_position = 0.0
 
 [node name="RootMotionView" type="RootMotionView" parent="."]
 animation_path = NodePath("../AnimationTree")
 
-[connection signal="animation_finished" from="StickAnim" to="." method="_on_Stick_animation_finished"]
+[node name="CueDash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="CueParry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="AudioDamaged1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_size = 5.0
+
+[node name="AudioDamaged2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+unit_size = 5.0
+
+[node name="AudioDamaged3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+unit_size = 5.0
+
+[node name="AudioDamaged4" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 10 )
+unit_size = 5.0
+
+[node name="AudioDeath1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 18 )
+unit_size = 5.0
+
+[node name="AudioDeath2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 17 )
+unit_size = 5.0
+
+[node name="AudioPlayerFootsteps" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 16 )
+unit_size = 5.0
+
+[node name="AudioSwordBlocked" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )
+unit_size = 5.0
+
+[node name="CueSwordStabFlourish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="CueSwordStab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="AudioSwordSwing1" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 30 )
+
+[node name="AudioSwordSwing2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="AudioSwordSwing3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 12 )
+
+[node name="AudioSwordSwing4" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 13 )
