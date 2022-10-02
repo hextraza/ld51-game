@@ -3,7 +3,7 @@ class_name Player
 func get_class(): return 'Player'
 
 onready var animation_tree := $AnimationTree as AnimationTree
-onready var stick := $Stick/AnimationPlayer as AnimationPlayer
+onready var game_logic := $GameLogic as AnimationPlayer
 onready var reach := $Reach as Area
 
 export var input_enabled := false
@@ -71,14 +71,19 @@ func _physics_process(delta:float) -> void:
 	if input_enabled:
 		set_controls_from_input()
 
-	if ctl_parry and not stick.is_playing():
-		stick.play('Parry')
-	elif ctl_stab and not stick.is_playing():
-		stick.play('Attack')
+	var playback_state := animation_tree['parameters/playback'] as AnimationNodeStateMachinePlayback
+	var is_walking := playback_state.get_current_node() == 'walk'
 
-	# animation_tree['parameters/playback'].travel('walk')
-	param_walk = lerp(param_walk, ctl_move.x, TAU * delta)
-	animation_tree['parameters/walk/blend_position'] = param_walk
+	if ctl_parry and is_walking:
+		game_logic.play('Parry')
+		animation_tree['parameters/playback'].travel('parry')
+	elif ctl_stab and is_walking:
+		game_logic.play('Attack')
+		animation_tree['parameters/playback'].travel('stab')
+	else:
+		param_walk = lerp(param_walk, ctl_move.x, TAU * delta)
+		animation_tree['parameters/walk/blend_position'] = param_walk
+		animation_tree['parameters/playback'].travel('walk')
 
 	var	root_motion := animation_tree.get_root_motion_transform()
 	# transform.basis *= root_motion.basis
