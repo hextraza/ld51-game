@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sword Stab (with Horn Flourish).wav-ee4c78ac83ded50eb5eecaa5f809776c.sample"
+
+[deps]
+
+source_file="res://player/player sounds/Sword Stab (with Horn Flourish).wav"
+dest_files=[ "res://.import/Sword Stab (with Horn Flourish).wav-ee4c78ac83ded50eb5eecaa5f809776c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sword Blocked.wav-5f425dbb20bcb78aae85e8dabe181a6d.sample"
+
+[deps]
+
+source_file="res://player/player sounds/Sword Blocked.wav"
+dest_files=[ "res://.import/Sword Blocked.wav-5f425dbb20bcb78aae85e8dabe181a6d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
