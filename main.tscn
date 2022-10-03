@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://player/camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Environment" id=1]
+background_color = Color( 0.65098, 0.65098, 0.65098, 1 )
+background_energy = 6.0
+ambient_light_color = Color( 0.541176, 0.541176, 0.541176, 1 )
+ambient_light_energy = 3.0
+fog_enabled = true
+fog_color = Color( 0.509804, 0.243137, 0.243137, 1 )
+fog_depth_begin = 0.0
+fog_depth_end = 200.0
+fog_height_enabled = true
+fog_height_min = 15.0
+fog_height_max = -15.0
+glow_intensity = 8.0
+glow_strength = 0.71
+glow_bloom = 1.0
+glow_hdr_threshold = 2.22
+glow_hdr_luminance_cap = 75.39
+glow_high_quality = true
+adjustment_brightness = 0.7
+adjustment_contrast = 0.56
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -24,6 +45,9 @@ use_input = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 default_level = NodePath("../Level")
 default_player = NodePath("../Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource( 1 )
 
 [node name="Menu" type="Panel" parent="."]
 visible = false
