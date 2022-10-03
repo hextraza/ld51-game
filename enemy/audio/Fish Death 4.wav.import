@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Ludum Dare 51 Soundtrack.wav-e5399ac22435feaedf52fb0a622e6d8f.sample"
+path="res://.import/Fish Death 4.wav-e66b3fb3c18735a14e380eab4d823d7b.sample"
 
 [deps]
 
-source_file="res://levels/Ludum Dare 51 Soundtrack.wav"
-dest_files=[ "res://.import/Ludum Dare 51 Soundtrack.wav-e5399ac22435feaedf52fb0a622e6d8f.sample" ]
+source_file="res://enemy/audio/Fish Death 4.wav"
+dest_files=[ "res://.import/Fish Death 4.wav-e66b3fb3c18735a14e380eab4d823d7b.sample" ]
 
 [params]
 

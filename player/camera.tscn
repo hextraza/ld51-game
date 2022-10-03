@@ -14,6 +14,50 @@ shape = SubResource( 1 )
 spring_length = 7.5
 
 [node name="Camera" type="Camera" parent="CameraBoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 keep_aspect = 0
 near = 0.1
 far = 4000.0
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HUD" type="HBoxContainer" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -64.0
+margin_right = 496.0
+margin_bottom = -16.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Time" type="Panel" parent="UI/HUD"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="UI/HUD/Time"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DashBar" type="ProgressBar" parent="UI/HUD"]
+margin_left = 52.0
+margin_right = 244.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 192, 48 )
+percent_visible = false

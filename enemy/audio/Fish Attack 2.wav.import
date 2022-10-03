@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Fish Death 1.wav-df95b1567a81054d5d6ea8699a430729.sample"
+path="res://.import/Fish Attack 2.wav-51f34850ff597f12ed9dc772ec3d52e5.sample"
 
 [deps]
 
-source_file="res://enemy/enemy sounds/Fish Death 1.wav"
-dest_files=[ "res://.import/Fish Death 1.wav-df95b1567a81054d5d6ea8699a430729.sample" ]
+source_file="res://enemy/audio/Fish Attack 2.wav"
+dest_files=[ "res://.import/Fish Attack 2.wav-51f34850ff597f12ed9dc772ec3d52e5.sample" ]
 
 [params]
 

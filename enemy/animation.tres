@@ -1,0 +1,91 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=21 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "attack-failed"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "block"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "walk-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "idle-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "walk-cycle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=4]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource( 3 )
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "turn"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 1
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[resource]
+states/attack/node = SubResource( 6 )
+states/attack/position = Vector2( 216.6, 250.59 )
+states/attack-failed/node = SubResource( 5 )
+states/attack-failed/position = Vector2( 435.8, 250.488 )
+states/block/node = SubResource( 7 )
+states/block/position = Vector2( 435.301, 19 )
+states/death/node = SubResource( 8 )
+states/death/position = Vector2( 560.6, 135.374 )
+states/move/node = SubResource( 4 )
+states/move/position = Vector2( 326.2, 134.42 )
+states/turn/node = SubResource( 17 )
+states/turn/position = Vector2( 216.755, 18.9558 )
+transitions = [ "move", "block", SubResource( 9 ), "move", "attack", SubResource( 11 ), "move", "death", SubResource( 12 ), "attack-failed", "move", SubResource( 14 ), "block", "move", SubResource( 15 ), "attack", "attack-failed", SubResource( 16 ), "move", "turn", SubResource( 18 ), "turn", "move", SubResource( 19 ), "block", "death", SubResource( 20 ), "attack-failed", "death", SubResource( 21 ), "attack", "move", SubResource( 22 ) ]
+start_node = "move"
+end_node = "death"
+graph_offset = Vector2( 119, -154 )

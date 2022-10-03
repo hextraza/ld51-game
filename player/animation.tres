@@ -42,7 +42,7 @@ nodes/jumping/position = Vector2( 64, 352 )
 nodes/output/position = Vector2( 480, 208 )
 nodes/walk/node = SubResource( 88 )
 nodes/walk/position = Vector2( 16, 160 )
-node_connections = [ "jump", 0, "walk", "jump", 1, "jumping", "output", 0, "jump" ]
+node_connections = [ "output", 0, "jump", "jump", 0, "walk", "jump", 1, "jumping" ]
 
 [sub_resource type="AnimationNodeAnimation" id=62]
 animation = "parry_recoil"
@@ -64,7 +64,7 @@ graph_offset = Vector2( -486.4, -231.2 )
 nodes/output/position = Vector2( 224, 160 )
 nodes/recoil/node = SubResource( 64 )
 nodes/recoil/position = Vector2( 16, 160 )
-node_connections = [ "recoil", 0, "Animation 3", "recoil", 1, "Animation 2", "output", 0, "recoil" ]
+node_connections = [ "output", 0, "recoil", "recoil", 0, "Animation 3", "recoil", 1, "Animation 2" ]
 
 [sub_resource type="AnimationNodeAnimation" id=34]
 animation = "stab"
