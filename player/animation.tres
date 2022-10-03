@@ -1,0 +1,128 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=27 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "damage"
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "dash"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "death"
+
+[sub_resource type="AnimationNodeOneShot" id=70]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id=69]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "walk-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "idle-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=87]
+animation = "walk-cycle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=88]
+blend_point_0/node = SubResource( 85 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 86 )
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource( 87 )
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=72]
+graph_offset = Vector2( -262.4, -199.8 )
+nodes/jump/node = SubResource( 70 )
+nodes/jump/position = Vector2( 272, 192 )
+nodes/jumping/node = SubResource( 69 )
+nodes/jumping/position = Vector2( 64, 352 )
+nodes/output/position = Vector2( 480, 208 )
+nodes/walk/node = SubResource( 88 )
+nodes/walk/position = Vector2( 16, 160 )
+node_connections = [ "jump", 0, "walk", "jump", 1, "jumping", "output", 0, "jump" ]
+
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "parry_recoil"
+
+[sub_resource type="AnimationNodeAnimation" id=63]
+animation = "parry"
+
+[sub_resource type="AnimationNodeOneShot" id=64]
+mix_mode = 1
+fadein_time = 0.0
+fadeout_time = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id=59]
+graph_offset = Vector2( -486.4, -231.2 )
+"nodes/Animation 2/node" = SubResource( 62 )
+"nodes/Animation 2/position" = Vector2( -208, 320 )
+"nodes/Animation 3/node" = SubResource( 63 )
+"nodes/Animation 3/position" = Vector2( -192, 160 )
+nodes/output/position = Vector2( 224, 160 )
+nodes/recoil/node = SubResource( 64 )
+nodes/recoil/position = Vector2( 16, 160 )
+node_connections = [ "recoil", 0, "Animation 3", "recoil", 1, "Animation 2", "output", 0, "recoil" ]
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "stab"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+xfade_time = 0.1
+
+[resource]
+states/damage/node = SubResource( 31 )
+states/damage/position = Vector2( 205.919, -50.9461 )
+states/dash/node = SubResource( 51 )
+states/dash/position = Vector2( -101.139, -178.002 )
+states/death/node = SubResource( 33 )
+states/death/position = Vector2( -178.085, -50.5612 )
+states/move/node = SubResource( 72 )
+states/move/position = Vector2( 8.00001, -51.7969 )
+states/parry/node = SubResource( 59 )
+states/parry/position = Vector2( 102.495, 75.3949 )
+states/stab/node = SubResource( 34 )
+states/stab/position = Vector2( 101.964, -178.127 )
+transitions = [ "stab", "damage", SubResource( 45 ), "parry", "damage", SubResource( 66 ), "move", "stab", SubResource( 76 ), "stab", "move", SubResource( 77 ), "damage", "move", SubResource( 78 ), "move", "damage", SubResource( 79 ), "move", "dash", SubResource( 80 ), "dash", "move", SubResource( 81 ), "move", "parry", SubResource( 82 ), "parry", "move", SubResource( 83 ), "move", "death", SubResource( 84 ) ]
+start_node = "move"
+graph_offset = Vector2( -335, -295 )

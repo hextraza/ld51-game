@@ -2,17 +2,17 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/player.glb-d5e59c3624fa2635da7ea043f9526ccc.scn"
+path="res://.import/player.glb-4fab3988dc7fd5b74f5ba5057da16803.scn"
 
 [deps]
 
-source_file="res://player/player.glb"
-dest_files=[ "res://.import/player.glb-d5e59c3624fa2635da7ea043f9526ccc.scn" ]
+source_file="res://player/model/player.glb"
+dest_files=[ "res://.import/player.glb-4fab3988dc7fd5b74f5ba5057da16803.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="KinematicBody"
+nodes/root_name="Player"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
@@ -29,10 +29,10 @@ meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 external_files/store_in_subdir=false
 animation/import=true
-animation/fps=15
+animation/fps=24.0
 animation/filter_script=""
-animation/storage=false
-animation/keep_custom_tracks=false
+animation/storage=1
+animation/keep_custom_tracks=true
 animation/optimizer/enabled=true
 animation/optimizer/max_linear_error=0.05
 animation/optimizer/max_angular_error=0.01

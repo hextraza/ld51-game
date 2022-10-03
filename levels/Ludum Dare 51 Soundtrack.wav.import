@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Damaged 3.wav-fa21d52d4768f50aae673bdd84d6433c.sample"
+path="res://.import/Ludum Dare 51 Soundtrack.wav-e5399ac22435feaedf52fb0a622e6d8f.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Damaged 3.wav"
-dest_files=[ "res://.import/Player Damaged 3.wav-fa21d52d4768f50aae673bdd84d6433c.sample" ]
+source_file="res://levels/Ludum Dare 51 Soundtrack.wav"
+dest_files=[ "res://.import/Ludum Dare 51 Soundtrack.wav-e5399ac22435feaedf52fb0a622e6d8f.sample" ]
 
 [params]
 

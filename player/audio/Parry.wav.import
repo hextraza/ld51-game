@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Dash.wav-db560b82061eab5ec2cb26284f145982.sample"
+path="res://.import/Parry.wav-30e7616cdf67281d56bb9605e95c4caf.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Dash.wav"
-dest_files=[ "res://.import/Dash.wav-db560b82061eab5ec2cb26284f145982.sample" ]
+source_file="res://player/audio/Parry.wav"
+dest_files=[ "res://.import/Parry.wav-30e7616cdf67281d56bb9605e95c4caf.sample" ]
 
 [params]
 

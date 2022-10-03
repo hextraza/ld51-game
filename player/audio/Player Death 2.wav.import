@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Sword Blocked.wav-5f425dbb20bcb78aae85e8dabe181a6d.sample"
+path="res://.import/Player Death 2.wav-a96cb536acb8f3d0dfad58c8826d095b.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Sword Blocked.wav"
-dest_files=[ "res://.import/Sword Blocked.wav-5f425dbb20bcb78aae85e8dabe181a6d.sample" ]
+source_file="res://player/audio/Player Death 2.wav"
+dest_files=[ "res://.import/Player Death 2.wav-a96cb536acb8f3d0dfad58c8826d095b.sample" ]
 
 [params]
 

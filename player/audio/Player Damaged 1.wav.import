@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Damaged 4.wav-668e8646efb31be2cffe467ba4ad0391.sample"
+path="res://.import/Player Damaged 1.wav-4ee9351c7d4c389454d4ba4fcbdd6fd8.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Damaged 4.wav"
-dest_files=[ "res://.import/Player Damaged 4.wav-668e8646efb31be2cffe467ba4ad0391.sample" ]
+source_file="res://player/audio/Player Damaged 1.wav"
+dest_files=[ "res://.import/Player Damaged 1.wav-4ee9351c7d4c389454d4ba4fcbdd6fd8.sample" ]
 
 [params]
 

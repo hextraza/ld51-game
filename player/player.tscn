@@ -1,293 +1,140 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://player/player.gd" type="Script" id=1]
-[ext_resource path="res://player/player.glb" type="PackedScene" id=2]
-[ext_resource path="res://player/player sounds/Parry.wav" type="AudioStream" id=3]
-[ext_resource path="res://player/player sounds/Player Damaged 1.wav" type="AudioStream" id=4]
-[ext_resource path="res://player/player sounds/Sword Swing 1.wav" type="AudioStream" id=5]
-[ext_resource path="res://player/player sounds/Sword Blocked.wav" type="AudioStream" id=6]
-[ext_resource path="res://player/player sounds/Dash.wav" type="AudioStream" id=7]
-[ext_resource path="res://player/player sounds/Player Damaged 2.wav" type="AudioStream" id=8]
-[ext_resource path="res://player/player sounds/Player Damaged 3.wav" type="AudioStream" id=9]
-[ext_resource path="res://player/player sounds/Player Damaged 4.wav" type="AudioStream" id=10]
-[ext_resource path="res://player/player sounds/Sword Swing 2.wav" type="AudioStream" id=11]
-[ext_resource path="res://player/player sounds/Sword Swing 3.wav" type="AudioStream" id=12]
-[ext_resource path="res://player/player sounds/Sword Swing 4.wav" type="AudioStream" id=13]
-[ext_resource path="res://player/player sounds/Sword Stab (with Horn Flourish).wav" type="AudioStream" id=14]
-[ext_resource path="res://player/player sounds/Sword Stab.wav" type="AudioStream" id=15]
-[ext_resource path="res://player/player sounds/Player Footsteps Wood.wav" type="AudioStream" id=16]
-[ext_resource path="res://player/player sounds/Player Death 2.wav" type="AudioStream" id=17]
-[ext_resource path="res://player/player sounds/Player Death 1.wav" type="AudioStream" id=18]
+[ext_resource path="res://player/animation.tres" type="AnimationNodeStateMachine" id=1]
+[ext_resource path="res://player/model/player.glb" type="PackedScene" id=2]
+[ext_resource path="res://player/audio/Dash.wav" type="AudioStream" id=3]
+[ext_resource path="res://player/player.gd" type="Script" id=4]
+[ext_resource path="res://player/audio/Sword Swing 1.wav" type="AudioStream" id=5]
+[ext_resource path="res://player/audio/Player Footsteps Wood.wav" type="AudioStream" id=8]
+[ext_resource path="res://player/audio/Player Death 1.wav" type="AudioStream" id=11]
+[ext_resource path="res://player/audio/Parry.wav" type="AudioStream" id=13]
+[ext_resource path="res://player/audio/Player Damaged 1.wav" type="AudioStream" id=16]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.25
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.1, 0.1, 0.1 )
-
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.372496, 1, 0.364538 )
-
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "damage"
-
-[sub_resource type="AnimationNodeAnimation" id=32]
-animation = "dash"
-
-[sub_resource type="AnimationNodeAnimation" id=33]
-animation = "death"
-
-[sub_resource type="AnimationNodeAnimation" id=27]
-animation = "parry"
-
-[sub_resource type="AnimationNodeAnimation" id=34]
-animation = "stab"
-
-[sub_resource type="AnimationNodeAnimation" id=22]
-animation = "idle-cycle"
-
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "walk-cycle"
-
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "walk-cycle"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id=24]
-blend_point_0/node = SubResource( 22 )
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 23 )
-blend_point_1/pos = 1.0
-blend_point_2/node = SubResource( 25 )
-blend_point_2/pos = -1.0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
-xfade_time = 0.1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-switch_mode = 2
-auto_advance = true
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-switch_mode = 2
-auto_advance = true
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
-switch_mode = 2
-auto_advance = true
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=43]
-switch_mode = 2
-auto_advance = true
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachine" id=20]
-states/damage/node = SubResource( 31 )
-states/damage/position = Vector2( 337.987, 136.522 )
-states/dash/node = SubResource( 32 )
-states/dash/position = Vector2( 45.9409, 136.784 )
-states/death/node = SubResource( 33 )
-states/death/position = Vector2( 486.506, 8.06514 )
-states/parry/node = SubResource( 27 )
-states/parry/position = Vector2( 186.768, 137.16 )
-states/stab/node = SubResource( 34 )
-states/stab/position = Vector2( 486.8, 136.08 )
-states/walk/node = SubResource( 24 )
-states/walk/position = Vector2( 250.377, 7.54867 )
-transitions = [ "walk", "parry", SubResource( 29 ), "walk", "dash", SubResource( 35 ), "walk", "death", SubResource( 37 ), "walk", "damage", SubResource( 38 ), "walk", "stab", SubResource( 39 ), "dash", "walk", SubResource( 40 ), "parry", "walk", SubResource( 41 ), "damage", "walk", SubResource( 42 ), "stab", "walk", SubResource( 43 ) ]
-start_node = "walk"
-graph_offset = Vector2( -25, -50 )
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
-
-[sub_resource type="AudioStreamRandomPitch" id=30]
-audio_stream = ExtResource( 5 )
-
-[sub_resource type="Animation" id=11]
-resource_name = "Attack"
-length = 0.9
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+[sub_resource type="Animation" id=5]
+resource_name = "parry_recoil"
+length = 2.0
+step = 0.042
+tracks/0/type = "audio"
+tracks/0/path = NodePath("metarig/Skeleton/ForearmRight/Parry")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "on_attack"
-} ]
-}
-tracks/1/type = "audio"
-tracks/1/path = NodePath("AudioSwordSwing1")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": SubResource( 30 )
+"stream": ExtResource( 13 )
 } ],
-"times": PoolRealArray( 0.5 )
+"times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Parry"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:is_parrying")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[sub_resource type="Animation" id=9]
-length = 0.001
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.25
 
-[sub_resource type="Animation" id=26]
-resource_name = "Recoil"
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.5, 1, 0.45 )
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" instance=ExtResource( 2 )]
 axis_lock_motion_z = true
 move_lock_z = true
-script = ExtResource( 1 )
+script = ExtResource( 4 )
 
-[node name="CollisionShapeCapsule" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.75, 0 )
-shape = SubResource( 1 )
-
-[node name="CollisionShapeBoxFoot" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
-shape = SubResource( 3 )
-
-[node name="Reach" type="Area" parent="."]
-collision_mask = 0
-monitorable = false
+[node name="metarig" parent="." index="0"]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Reach"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.63036 )
-shape = SubResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Skeleton" parent="metarig" index="0"]
+bones/0/bound_children = [ NodePath("RootMotion") ]
+bones/17/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
+bones/20/bound_children = [ NodePath("BoneAttachment3") ]
+bones/23/bound_children = [ NodePath("BoneAttachment4"), NodePath("ForearmRight") ]
 
-[node name="Stick" type="Spatial" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="BoneAttachment" parent="metarig/Skeleton" index="0"]
+transform = Transform( -0.999999, -0.00153577, 0.00034368, -0.00153217, 0.999946, 0.0102455, -0.000359396, 0.0102451, -0.999947, -0.000586697, 1.75365, -0.0281298 )
 
-[node name="ImportedModel" parent="." instance=ExtResource( 2 )]
+[node name="BoneAttachment2" parent="metarig/Skeleton" index="1"]
+transform = Transform( -0.999999, -0.00153577, 0.00034368, -0.00153217, 0.999946, 0.0102455, -0.000359396, 0.0102451, -0.999947, -0.000586697, 1.75365, -0.0281298 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 20 )
-anim_player = NodePath("../ImportedModel/AnimationPlayer")
+[node name="Damage" type="AudioStreamPlayer3D" parent="metarig/Skeleton/BoneAttachment2" index="1"]
+stream = ExtResource( 16 )
+unit_db = -25.1055
+unit_size = 5.0
+
+[node name="Death" type="AudioStreamPlayer3D" parent="metarig/Skeleton/BoneAttachment2" index="2"]
+stream = ExtResource( 11 )
+unit_size = 5.0
+
+[node name="BoneAttachment3" parent="metarig/Skeleton" index="2"]
+transform = Transform( 0.913568, 0.384133, 0.133553, 0.404729, -0.826568, -0.391124, -0.0398532, 0.411371, -0.910596, 0.237247, 1.39429, -0.0597 )
+
+[node name="BoneAttachment4" parent="metarig/Skeleton" index="3"]
+transform = Transform( 0.945103, -0.32465, 0.0371929, -0.322065, -0.944683, -0.0620147, 0.0552685, 0.0466321, -0.997382, -0.217203, 1.39253, -0.0922556 )
+
+[node name="RootMotion" type="BoneAttachment" parent="metarig/Skeleton" index="6"]
+transform = Transform( 1, 0, -1.50996e-07, -1.50996e-07, 0, -1, 0, 1, 0, 0, 0, -0.25 )
+bone_name = "Root Motion"
+
+[node name="Dash" type="AudioStreamPlayer3D" parent="metarig/Skeleton/RootMotion" index="0"]
+stream = ExtResource( 3 )
+unit_db = -25.1055
+unit_size = 5.0
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="metarig/Skeleton/RootMotion" index="1"]
+stream = ExtResource( 8 )
+
+[node name="ForearmRight" type="BoneAttachment" parent="metarig/Skeleton" index="7"]
+transform = Transform( 0.945103, -0.32465, 0.0371929, -0.322065, -0.944683, -0.0620147, 0.0552685, 0.0466321, -0.997382, -0.217203, 1.39253, -0.0922556 )
+bone_name = "forearm.R"
+
+[node name="Swing" type="AudioStreamPlayer3D" parent="metarig/Skeleton/ForearmRight" index="0"]
+stream = ExtResource( 5 )
+unit_db = -25.1055
+
+[node name="Parry" type="AudioStreamPlayer3D" parent="metarig/Skeleton/ForearmRight" index="1"]
+stream = ExtResource( 13 )
+unit_size = 5.0
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/parry_recoil = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+unique_name_in_owner = true
+tree_root = ExtResource( 1 )
+anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 root_motion_track = NodePath("metarig/Skeleton:Root Motion")
-parameters/playback = SubResource( 21 )
-parameters/walk/blend_position = 1.0
+parameters/playback = SubResource( 1 )
+parameters/move/jump/active = false
+parameters/move/walk/blend_position = 0
+parameters/parry/recoil/active = false
 
-[node name="RootMotionView" type="RootMotionView" parent="."]
+[node name="RootMotionView" type="RootMotionView" parent="." index="3"]
 animation_path = NodePath("../AnimationTree")
+zero_y = false
 
-[node name="GameLogic" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
-playback_default_blend_time = 0.1
-anims/Attack = SubResource( 11 )
-anims/Parry = SubResource( 12 )
-anims/RESET = SubResource( 9 )
-anims/Recoil = SubResource( 26 )
+[node name="CollisionShape" type="CollisionShape" parent="." index="4"]
+transform = Transform( 1, 4.23516e-22, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.75, -2.98023e-08 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="CueDash" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+[node name="AreaReach" type="Area" parent="." index="5"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25 )
+collision_mask = 0
+monitorable = false
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="CueParry" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-
-[node name="AudioDamaged1" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 4 )
-unit_size = 5.0
-
-[node name="AudioDamaged2" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 8 )
-unit_size = 5.0
-
-[node name="AudioDamaged3" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 9 )
-unit_size = 5.0
-
-[node name="AudioDamaged4" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 10 )
-unit_size = 5.0
-
-[node name="AudioDeath1" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 18 )
-unit_size = 5.0
-
-[node name="AudioDeath2" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 17 )
-unit_size = 5.0
-
-[node name="AudioPlayerFootsteps" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 16 )
-unit_size = 5.0
-
-[node name="AudioSwordBlocked" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 6 )
-unit_size = 5.0
-
-[node name="CueSwordStabFlourish" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-
-[node name="CueSwordStab" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
-
-[node name="AudioSwordSwing1" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource( 30 )
-
-[node name="AudioSwordSwing2" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 11 )
-
-[node name="AudioSwordSwing3" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 12 )
-
-[node name="AudioSwordSwing4" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 13 )
+[node name="CollisionShape" type="CollisionShape" parent="AreaReach" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.45 )
+shape = SubResource( 4 )

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Damaged 1.wav-74d308dd7e6f02046482a4afb933c8fa.sample"
+path="res://.import/Player Footsteps Wood.wav-38a63b1df7e88492b3f4b963803fd6d0.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Damaged 1.wav"
-dest_files=[ "res://.import/Player Damaged 1.wav-74d308dd7e6f02046482a4afb933c8fa.sample" ]
+source_file="res://player/audio/Player Footsteps Wood.wav"
+dest_files=[ "res://.import/Player Footsteps Wood.wav-38a63b1df7e88492b3f4b963803fd6d0.sample" ]
 
 [params]
 

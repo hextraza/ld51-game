@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Sword Swing 4.wav-6a91f405a17685a9604bef735d1563f2.sample"
+path="res://.import/Sword Blocked.wav-fab08cd5e133862dbc4f74e97cc93b65.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Sword Swing 4.wav"
-dest_files=[ "res://.import/Sword Swing 4.wav-6a91f405a17685a9604bef735d1563f2.sample" ]
+source_file="res://player/audio/Sword Blocked.wav"
+dest_files=[ "res://.import/Sword Blocked.wav-fab08cd5e133862dbc4f74e97cc93b65.sample" ]
 
 [params]
 
