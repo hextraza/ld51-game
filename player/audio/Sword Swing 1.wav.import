@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Damaged 2.wav-e39ba5eaa20a78a62bd7d79e21ddd057.sample"
+path="res://.import/Sword Swing 1.wav-ddab89e45aec20b06adad46ee385827e.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Damaged 2.wav"
-dest_files=[ "res://.import/Player Damaged 2.wav-e39ba5eaa20a78a62bd7d79e21ddd057.sample" ]
+source_file="res://player/audio/Sword Swing 1.wav"
+dest_files=[ "res://.import/Sword Swing 1.wav-ddab89e45aec20b06adad46ee385827e.sample" ]
 
 [params]
 

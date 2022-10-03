@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Parry.wav-73627937cc4eb7040b0816dcbe0cc48d.sample"
+path="res://.import/Player Damaged 2.wav-cef98cdda06ebc19b54b474a373e4d2c.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Parry.wav"
-dest_files=[ "res://.import/Parry.wav-73627937cc4eb7040b0816dcbe0cc48d.sample" ]
+source_file="res://player/audio/Player Damaged 2.wav"
+dest_files=[ "res://.import/Player Damaged 2.wav-cef98cdda06ebc19b54b474a373e4d2c.sample" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Dash.wav-db560b82061eab5ec2cb26284f145982.sample"
+path="res://.import/Player Death 2.wav-a96cb536acb8f3d0dfad58c8826d095b.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Dash.wav"
-dest_files=[ "res://.import/Dash.wav-db560b82061eab5ec2cb26284f145982.sample" ]
+source_file="res://player/audio/Player Death 2.wav"
+dest_files=[ "res://.import/Player Death 2.wav-a96cb536acb8f3d0dfad58c8826d095b.sample" ]
 
 [params]
 

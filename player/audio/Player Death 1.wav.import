@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Sword Swing 3.wav-80e4bc3a9b2048eceabcb120d5730761.sample"
+path="res://.import/Player Death 1.wav-63057303b552c3c3c1eb7ee968c7095a.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Sword Swing 3.wav"
-dest_files=[ "res://.import/Sword Swing 3.wav-80e4bc3a9b2048eceabcb120d5730761.sample" ]
+source_file="res://player/audio/Player Death 1.wav"
+dest_files=[ "res://.import/Player Death 1.wav-63057303b552c3c3c1eb7ee968c7095a.sample" ]
 
 [params]
 

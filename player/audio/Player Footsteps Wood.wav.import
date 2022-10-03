@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Death 1.wav-fef69d1c1ab3df06b912bef484f4ea2d.sample"
+path="res://.import/Player Footsteps Wood.wav-38a63b1df7e88492b3f4b963803fd6d0.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Death 1.wav"
-dest_files=[ "res://.import/Player Death 1.wav-fef69d1c1ab3df06b912bef484f4ea2d.sample" ]
+source_file="res://player/audio/Player Footsteps Wood.wav"
+dest_files=[ "res://.import/Player Footsteps Wood.wav-38a63b1df7e88492b3f4b963803fd6d0.sample" ]
 
 [params]
 

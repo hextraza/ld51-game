@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Player Footsteps Wood.wav-6284ed9c34a02bd3ec724fa582d19bcb.sample"
+path="res://.import/Sword Stab.wav-1127d1a8e76a675705e20ed490293be9.sample"
 
 [deps]
 
-source_file="res://player/player sounds/Player Footsteps Wood.wav"
-dest_files=[ "res://.import/Player Footsteps Wood.wav-6284ed9c34a02bd3ec724fa582d19bcb.sample" ]
+source_file="res://player/audio/Sword Stab.wav"
+dest_files=[ "res://.import/Sword Stab.wav-1127d1a8e76a675705e20ed490293be9.sample" ]
 
 [params]
 
