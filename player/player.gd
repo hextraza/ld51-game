@@ -75,6 +75,10 @@ func set_controls_from_input() -> void:
 	ctl_dash = Input.is_action_just_pressed('combat_dash')
 
 
+func _ready() -> void:
+	animation_tree.active = true
+
+
 func _physics_process(delta:float) -> void:
 	if use_input:
 		set_controls_from_input()
